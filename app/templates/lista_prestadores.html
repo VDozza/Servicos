@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Prestadores de Serviço</h2>
+<ul>
+    {% for prestador in prestadores %}
+    <li>
+        {{ prestador.nome_completo }} - {{ prestador.profissao }}
+        <ul>
+            {% for area in prestador.areas.all %}
+            <li>{{ area.nome }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Bem-vindo ao Sistema de Serviços</h1>
+    
+    {% if user.is_authenticated %}
+        <p>Olá, {{ user.first_name }}!</p>
+        <div class="actions">
+            <a href="{% url 'solicitar_servico' %}" class="btn btn-primary">Solicitar Serviço</a>
+            <a href="{% url 'listar_prestadores' %}" class="btn btn-secondary">Ver Prestadores</a>
+        </div>
+    {% else %}
+        <p>Por favor, faça login para acessar o sistema.</p>
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+    {% endif %}
+</div>
+{% endblock %}
